@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Selection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="link" rel="stylesheet" type="text/css">
+<script language=javascript>
+<!--
+	function ESubmit()
+	{
+		document.selectform.QueryType.value=0
+		document.selectform.submit()
+	}
+	function MSubmit()
+	{
+		document.selectform.QueryType.value=1
+		document.selectform.submit()
+	}
+	var standard
+	function showStandard(strTable,strPos,txtTarget)
+	{
+		var left,top;
+		var width,height;
+
+		if(strTable=="SHIYDXLYBW")
+			strTable="Yaoybw"
+		else if(strTable=="SHIYDXLYCD")
+			strTable="Ziyfb"
+		else if(strTable=="SHIYDXLYKS")
+			strTable="KeShu"
+		
+		width=270;
+		height=500;
+	
+		top=(screen.height-height)/4;
+	
+		if (strPos=="left")
+			left=screen.width-width-10;
+		else
+			left=0;
+
+		document.forms(0).pastefield.value=txtTarget;
+
+		if (standard=="[object]")
+			standard.close();
+		if(strTable=="SHIYDX")
+			standard=window.open("/starch/wizard.asp?table="+strTable,"standard","width="+width+",height="+height+",left="+left+",top="+top+",toolbar=no,scrollbars=yes");
+		else 
+			standard=window.open("/starch/simplewizard.asp?table="+strTable,"standard","width="+width+",height="+height+",left="+left+",top="+top+",toolbar=no,scrollbars=yes");
+		standard.focus();
+	}
+-->	
+</script>
+</head>
+
+<body bgcolor="#6699CC" leftmargin="3" topmargin="1" marginwidth="0" marginheight="0">
+<form name="selectform" method="post" action="list.asp?offset=1&isNew=1" target=main style="MARGIN: 0px; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px">
+  <table width="187" border="0" cellpadding="0" cellspacing="0" class="black" bgcolor="#FFFFFF">
+    <tr> 
+      <td><img src="images/js_1.gif" width="187" height="17"></td>
+    </tr>
+    <tr> 
+      <td > 
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="black">
+          <tr> 
+            <td width="31%"><div align="center">查询范围</div></td>
+            <td width="69%"><select name="concept" class="box" id="select1" >
+                <option selected value="SHIYDX">实验对象</option>
+                <option value="SHIYDXLYBW">对象来源-部位</option>
+                <option value="SHIYDXLYCD">对象来源-产地</option>
+                <option value="SHIYDXLYKS">对象来源-科属</option>
+              </select></td>
+          </tr>
+          <tr> 
+            <td><div align="center">关键词：</div></td>
+            <td><input name="Okeyword" type="text" class="box" id="textfield1" size="17"></td>
+          </tr>
+          <tr><td></td><td><input align=right type="button" value="辅助选词" onclick="showStandard(document.selectform.concept[document.selectform.concept.selectedIndex].value,'left','Okeyword')"></td></tr>
+        </table>
+	  </td>
+	</tr>
+	<tr>
+	  <td><img src="images/js_2.gif" width="187" height="17"></td>
+	</tr>
+	<tr>
+	  <td>
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="black">
+          <tr> 
+            <td width="31%"><div align="center">查询范围</div></td>
+            <td width="69%"><select name="lab" class="box" id="select2" >
+                <option selected value="SHIYSMC">实验室名称</option>
+                <option value="DIZ">实验室地址</option>
+              </select></td>
+          </tr>
+          <tr> 
+            <td><div align="center">关键词：</div></td>
+            <td><input name="Lkeyword" type="text" class="box" id="textfield2" size="17"></td>
+          </tr>
+          <tr><td></td><td><input align=right type="button" value="辅助选词" onclick="showStandard('Shiys','left','Lkeyword')"></td></tr>
+        </table>
+	  </td>
+	</tr>
+	<tr>
+	  <td><img src="images/js_3.gif" width="187" height="17"></td>
+	</tr>
+	<tr>
+	  <td>
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="black">
+          <tr> 
+            <td width="31%"><div align="center">查询范围</div></td>
+            <td width="69%"><select name="method" class="box" id="select3" >
+                <option selected value="CEDFF">实验方法查询</option>
+                <option value="HUAXCFCH">分类-成份纯化</option>
+                <option value="HUAXCFFL">分类-成份分离</option>
+                <option value="HUAXCFTQ">分类-成份提取</option>
+                <option value="HUAXCFHC">分类-成份合成</option>
+                <option value="HUAXCFJD">分类-成份鉴定</option>
+                <option value="HANLCD">分类-含量测定</option>
+              </select></td>
+          </tr>
+          <tr> 
+            <td><div align="center">关键词：</div></td>
+            <td><input name="Mkeyword" type="text" class="box" id="textfield12" size="17"></td>
+          </tr>
+          <tr><td></td><td><input align=right type="button" value="辅助选词" onclick="showStandard('Tongyjcff','left','Mkeyword')"></td></tr>
+        </table> 
+	  </td>
+	</tr>
+	<tr>
+	  <td><img src="images/js_4.gif" width="187" height="17"></td>
+	</tr>
+	<tr>
+	  <td>
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="black">
+          <tr> 
+            <td width="31%"><div align="center">查询范围</div></td>
+            <td width="69%"><select name="result" class="box" id="select4" >
+            	<option selected value="novalue">不选</option>      
+                <option value="RONGD">熔点</option>
+                <option value="XUANGD">旋光度</option>
+                <option value="CHUNHHX">活性</option>
+                <option value="CHUNHPL">纯化倍数</option>
+                <option value="HUISL1">回收率（纯化）</option>
+                <option value="CHUND">纯度</option>
+                <option value="CHENJPH">沉降平衡</option>
+                <option value="CHENJXS">沉降系数</option>
+                <option value="CHENJSD">沉降速度</option>
+                <option value="CHENJSJ">沉降时间</option>
+                <option value="K">K系数</option>
+                <option value="ZHONGL">重量</option>
+                <option value="SHOUL">收率</option>
+                <option value="JIANCPHL">检测品含量</option>
+                <option value="JINGMDCD">精密度测定</option>
+                <option value="XIANXGX">线性关系</option>
+                <option value="WUNDXSY">稳定性试验</option>
+                <option value="CHONGXXSY">重现性试验</option>
+                <option value="HUISL2">回收率（含量测定）</option>
+                <option value="BIAOZQX">标准曲线</option>
+                <option value="XIANGDBZPC">相对标准偏差</option>
+              </select></td>
+          </tr>
+        </table>
+      </td>
+	</tr>
+	<tr>
+	  <td>
+        <div align="center">
+        <a href="#" onclick="ESubmit()"><img src="images/j_go.gif" width="73" height="23" border="0"></a>　
+        <a href="#" onclick="MSubmit()"><img src="images/m_go.gif" width="73" height="23" border="0"></a>
+        </div>
+	  </td>
+    </tr>
+    <tr bgcolor="#000000"> 
+      <td height="2"><img src="images/1x1.gif" width="1" height="1"></td>
+    </tr>
+  </table>
+  <input type=hidden name="QueryType">
+  <input type=hidden name=pastefield>
+</form>
+</body>
+</html>

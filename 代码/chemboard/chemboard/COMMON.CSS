@@ -1,0 +1,4 @@
+.itable { border-collapse: collapse; border: 1px double brown }
+.itd { border: 1px double brown }
+a { text-decoration: none; color: black }
+a:hover { text-decoration: underline; color: red }

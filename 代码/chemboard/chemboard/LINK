@@ -1,0 +1,53 @@
+.black {  font-family: "宋体"; font-size: 9pt; line-height: 18pt; color: #000000; border: 1px double #666666 }
+.orange {  font-family: "宋体"; font-size: 9pt; line-height: 18pt; color: #000000; border: 1px double #B501DC; vspace=0 }
+.insidetable {font-family: "宋体"; font-size: 9pt; line-height: 12pt; color: #000000; border:0px}
+.clean { font-family: "宋体"; font-size: 9pt; line-height: 12pt; color: #000000; border: 0px; vspace=0}
+.green {  font-family: "宋体"; font-size: 9pt; line-height: 13pt; color: #054A2D; text-decoration: none}
+.yellow {  font-family: "宋体"; font-size: 9pt; line-height: 13pt; color: #FFFFCC; text-decoration: none}
+.hi {  font-family: "宋体"; font-size: 10.5pt; color: #000000; line-height: 15pt}
+.english {  font-family: "Arial", "Helvetica", "sans-serif"; color: #000000}
+.big {  font-family: "宋体"; font-size: 10.5pt; line-height: 15pt; color: #000000; text-decoration: none}
+.white {  font-family: "宋体"; font-size: 12px; line-height: 15px; color: #FFFFFF; text-decoration: none}
+.black1 {  font-family: "宋体"; font-size: 12px; line-height: 15px; color: #000000; text-decoration: none}
+.s_english {  font-family: "Arial", "Helvetica", "sans-serif"; font-size: 10px; line-height: 13px; color: #000000}
+.s2_english {  font-family: "Arial", "Helvetica", "sans-serif"; font-size: x-small; line-height: 25px}
+.s1_english {  font-family: "Arial", "Helvetica", "sans-serif"; font-size: 11.5px; line-height: 15px}
+.box {
+	font-family: "宋体";
+	font-size: 9pt;
+	color: #000000;
+	background-color: #E3E3E3;
+	font-weight: normal;
+	border: 1px double #666666;
+	font-style: normal;
+	line-height: normal;
+	font-variant: normal;
+
+
+
+
+
+}
+.box2 {
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000000;
+	background-color: #D3D3B4;
+	height: 15px;
+	border: 1px solid #666D49;
+}
+.english3 {
+	font-family: "Verdana", "Arial", "Helvetica", "sans-serif";
+	font-size: 9px;
+	color: #FF9900;
+	font-weight: bold;
+
+}
+input {
+	border: 1px double #666666;
+
+}

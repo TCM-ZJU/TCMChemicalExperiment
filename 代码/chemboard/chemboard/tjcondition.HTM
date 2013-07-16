@@ -1,0 +1,561 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft FrontPage 4.0">
+<TITLE>统计查询条件输入</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=gb2312">
+<LINK href="common.css" rel="stylesheet" type="text/css">
+<SCRIPT LANGUAGE=javascript>	
+<!--
+	var tabcount=0
+	var tabnum=0 
+	var labnum=0
+	var qtnum=0
+	var jgnum=0
+	var Lqtnum=0
+	var Ljgnum=0
+	var Mqtnum=0
+	var Mjgnum=0
+	///////////////////////////////////////////////////////
+	function addtab(num)
+	{
+		if (document.selectform.elements("sec"+num).checked==true)
+		{
+			document.oform.tabselect.length=6
+			document.oform.tabselect.options[tabnum].selected=true		
+			document.oform.tabselect.options[tabnum].value=num
+			tabnum++
+			tabcount++
+		}
+		else
+		{
+			for( var i=0;i<6;i++)
+			{
+				if (document.oform.tabselect.options[i].value==num)
+					document.oform.tabselect.options[i].selected=false
+			}
+			tabcount--
+		}
+	}
+	
+	function addlab(num)
+	{
+		if (document.selectform.elements("lab"+num).checked==true)
+		{
+			document.oform.labselect.length=4
+			document.oform.labselect.options[labnum].selected=true
+			document.oform.labselect.options[labnum].value=num
+			labnum++
+		}
+		else
+		{
+			for( var i=0;i<4;i++)
+			{
+				if(document.oform.labselect.options[i].value==num)
+					document.oform.labselect.options[i].selected=false
+			}
+		}
+	}
+	
+	function addsyqt(num)
+	{
+		if (document.selectform.elements("syqt"+num).checked==true)
+		{
+			document.oform.syqtselect.length=5
+			document.oform.syqtselect.options[qtnum].selected=true
+			document.oform.syqtselect.options[qtnum].value=num
+			qtnum++
+		}
+		else
+		{
+			for( var i=0;i<5;i++)
+			{
+				if(document.oform.syqtselect.options[i].value==num)
+					document.oform.syqtselect.options[i].selected=false
+			}
+		}
+	}
+	
+	function addjg(num)
+	{
+		if (document.selectform.elements("syjg"+num).checked==true)
+		{
+			document.oform.syjgselect.length=21
+			document.oform.syjgselect.options[jgnum].selected=true		
+			document.oform.syjgselect.options[jgnum].value=num
+			jgnum++
+		}
+		else
+		{
+			for( var i=0;i<21;i++)
+			{
+				if (document.oform.syjgselect.options[i].value==num)
+					document.oform.syjgselect.options[i].selected=false
+			}
+		}
+	}
+	/////////////////////////////////////////////////
+	function Laddqt(num)
+	{
+		if (document.selectform.elements("Lqt"+num).checked==true)
+		{
+			document.lform.syqtselect.length=6
+			document.lform.syqtselect.options[Lqtnum].selected=true
+			document.lform.syqtselect.options[Lqtnum].value=num
+			Lqtnum++
+		}
+		else
+		{
+			for( var i=0;i<2;i++)
+			{
+				if(document.lform.syqtselect.options[i].value==num)
+					document.lform.syqtselect.options[i].selected=false
+			}
+		}
+	}
+	
+	function Laddjg(num)
+	{
+		if (document.selectform.elements("syjg"+num).checked==true)
+		{
+			document.lform.syjgselect.length=21
+			document.lform.syjgselect.options[Ljgnum].selected=true		
+			document.lform.syjgselect.options[Ljgnum].value=num
+			Ljgnum++
+		}
+		else
+		{
+			for( var i=0;i<21;i++)
+			{
+				if (document.lform.syjgselect.options[i].value==num)
+					document.lform.syjgselect.options[i].selected=false
+			}
+		}
+	}
+	/////////////////////////////////////////////////
+	function Maddqt(num)
+	{
+		if (document.selectform.elements("syqt"+num).checked==true)
+		{
+			document.mform.syqtselect.length=2
+			document.mform.syqtselect.options[Mqtnum].selected=true
+			document.mform.syqtselect.options[Mqtnum].value=num
+			Mqtnum++
+		}
+		else
+		{
+			for( var i=0;i<2;i++)
+			{
+				if(document.mform.syqtselect.options[i].value==num)
+					document.mform.syqtselect.options[i].selected=false
+			}
+		}
+	}
+	
+	function Maddjg(num)
+	{
+		if (document.selectform.elements("syjg"+num).checked==true)
+		{
+			document.mform.syjgselect.length=21
+			document.mform.syjgselect.options[Mjgnum].selected=true		
+			document.mform.syjgselect.options[Mjgnum].value=num
+			Mjgnum++
+		}
+		else
+		{
+			for( var i=0;i<21;i++)
+			{
+				if (document.mform.syjgselect.options[i].value==num)
+					document.mform.syjgselect.options[i].selected=false
+			}
+		}
+	}
+	/////////////////////////////////////////////////////////////
+	function showcondition()
+	{
+		eval("scontent.innerHTML="+document.selectform.select.value+".innerHTML")
+	}
+	function postform(concept,type)
+	{
+		if(concept==0)
+		{
+			if ( tabcount!=0) 
+			{
+				document.oform.querytype.value=type
+				document.oform.okeyword.value=document.selectform.keyword.value
+				document.oform.submit()
+			}
+			else 
+				alert("至少选择一张二级表")
+		}
+		if(concept==1)
+		{
+			document.lform.querytype.value=type
+			document.lform.lkeyword.value=document.selectform.keyword.value
+			document.lform.submit()
+		}
+		if(concept==2)
+		{
+			document.mform.querytype.value=type
+			document.mform.mkeyword.value=document.selectform.keyword.value
+			document.mform.submit()
+		}
+	}
+
+	var standard;	
+	function showStandard(strTable,strPos,txtTarget)
+	{
+		var left,top;
+		var width,height;
+		
+		if( strTable=="div0")
+		 	strTable="SHIYDX"
+		if( strTable=="div1")
+			strTable="Shiys"
+		if( strTable=="div2")
+			strTable="Tongyjcff"
+	
+		width=270;
+		height=500;
+	
+		top=(screen.height-height)/4;
+	
+		if (strPos=="left")
+			left=screen.width-width-10;
+		else
+			left=0;
+
+		document.forms(0).pastefield.value=txtTarget;
+
+		if (standard=="[object]")
+			standard.close();
+		if(strTable=="SHIYDX")
+			standard=window.open("/starch/wizard.asp?table="+strTable,"standard","width="+width+",height="+height+",left="+left+",top="+top+",toolbar=no,scrollbars=yes");
+		else 	
+			standard=window.open("/starch/simplewizard.asp?table="+strTable,"standard","width="+width+",height="+height+",left="+left+",top="+top+",toolbar=no,scrollbars=yes");
+		standard.focus();
+	}
+
+-->	
+</SCRIPT>
+</HEAD>
+<body bgcolor="#ebdac7" text="#000000" onload="showcondition()">
+	<!-- 实验对象-->
+	<div align="center" id="div0"  style="VISIBILITY: hidden; POSITION: absolute">
+		<font size="2"><b>二级表限定（至少选一张）</b></font><br> 
+        <input type="checkbox" name="sec1"   onclick="addtab(1)">
+        <font size="2">化学成分分离</font> 
+        <input type="checkbox" name="sec2"   onclick="addtab(2)">
+        <font size="2">化学成分合成</font> 
+        <input type="checkbox" name="sec3"   onclick="addtab(3)">
+        <font size="2">化学成分纯化</font><br>
+       	<input type="checkbox" name="sec4"   onclick="addtab(4)">
+        <font size="2">化学成分提取</font> 
+        <input type="checkbox" name="sec5"   onclick="addtab(5)">
+        <font size="2">化学成分鉴定</font> 
+        <input type="checkbox" name="sec6"   onclick="addtab(6)">
+        <font size="2">含量测定</font><p></p>
+
+    	<font size="3"><b>选择查询范围</b></font><p></p>
+      	<font size="2"><b>实验室：</b></font> 
+      	<input type="checkbox" name="lab1" onclick="addlab(1)">
+      	<font size="2">实验室名称</font> 
+      	<input type="checkbox" name="lab2" onclick="addlab(2)">
+      	<font size="2">实验室地址</font><br> 
+      	<input type="checkbox" name="lab3" onclick="addlab(3)">
+      	<font size="2">实验室面积</font> 
+      	<input type="checkbox" name="lab4" onclick="addlab(4)">
+		<font size="2">实验室级别</font><br><hr>
+        
+        <input type="checkbox" name="syqt1" onclick="addsyqt(1)">
+     	<font size="2">实验方法</font> 
+     	<input type="checkbox" name="syqt2" onclick="addsyqt(2)">
+      	<font size="2">实验名称</font><br>
+      	<input type="checkbox" name="syqt3" onclick="addsyqt(3)">
+      	<font size="2">对象来源-产地</font> 
+      	<input type="checkbox" name="syqt4" onclick="addsyqt(4)">
+      	<font size="2">对象来源-部位</font> 
+      	<input type="checkbox" name="syqt5" onclick="addsyqt(5)">
+      	<font size="2">对象来源-科属</font><br>
+      	
+      	<font size="2"><b>实验结果：</b></font><br>
+      	
+        <font size="2">&nbsp&nbsp&nbsp&nbsp成分纯化：</font><br>
+      	<input type="checkbox" name="syjg1" onclick="addjg(1)">
+      	<font size="2">熔点</font> 
+      	<input type="checkbox" name="syjg2" onclick="addjg(2)">
+      	<font size="2">活性</font> 
+      	<input type="checkbox" name="syjg3" onclick="addjg(3)">
+      	<font size="2">纯化倍数</font><br>
+      	<input type="checkbox" name="syjg4" onclick="addjg(4)">
+      	<font size="2">旋光度</font> 
+      	<input type="checkbox" name="syjg5" onclick="addjg(5)">
+      	<font size="2">回收率</font> 
+      	<input type="checkbox" name="syjg6" onclick="addjg(6)">
+      	<font size="2">纯度</font><br>
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分分离：</font><br>
+      	<input type="checkbox" name="syjg7" onclick="addjg(7)">
+      	<font size="2">沉降平衡</font> 
+      	<input type="checkbox" name="syjg8" onclick="addjg(8)">
+      	<font size="2">沉降系数</font> 
+      	<input type="checkbox" name="syjg9" onclick="addjg(9)">
+      	<font size="2">沉降速度</font><br>
+      	<input type="checkbox" name="syjg10" onclick="addjg(10)">
+      	<font size="2">沉降时间</font> 
+      	<input type="checkbox" name="syjg11" onclick="addjg(11)">
+      	<font size="2">K系数</font><br> 
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分提取：</font><br>
+      	<input type="checkbox" name="syjg12" onclick="addjg(12)">
+      	<font size="2">重量</font>
+      	<input type="checkbox" name="syjg13" onclick="addjg(13)">
+      	<font size="2">收率</font><br> 
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp含量测定：</font><br>
+      	<input type="checkbox" name="syjg14" onclick="addjg(14)">
+      	<font size="2">检测品含量</font> 
+      	<input type="checkbox" name="syjg15" onclick="addjg(15)">
+      	<font size="2">精密度测定</font><br>
+      	<input type="checkbox" name="syjg16" onclick="addjg(16)">
+      	<font size="2">线性关系</font> 
+      	<input type="checkbox" name="syjg17" onclick="addjg(17)">
+      	<font size="2">稳定性试验</font> 
+      	<input type="checkbox" name="syjg18" onclick="addjg(18)">
+      	<font size="2">重现性试验</font><br>
+      	<input type="checkbox" name="syjg19" onclick="addjg(19)">
+      	<font size="2">相对标准偏差</font> 
+      	<input type="checkbox" name="syjg20" onclick="addjg(20)">
+      	<font size="2">回收率</font> 
+      	<input type="checkbox" name="syjg21" onclick="addjg(21)">
+      	<font size="2">标准曲线</font> 
+      	
+      	<p>
+      	<div align="center"> 
+       	<input type="button"   value="精确查询" onclick="postform(0,0)" >
+       	<input type="button"   value="模糊查询" onclick="postform(0,1)" >
+       	</div>
+    	</p>
+  	</div>    
+  	<!-- 实验室-->
+	<div align="center" id="div1"  style="VISIBILITY: hidden; POSITION: absolute">
+   		<font size="3"><b>选择查询范围</b></font><p></p>
+   		<input type="checkbox" name="Lqt1" onclick="Laddqt(1)">
+    	<font size="2">实验对象</font> 
+		<input type="checkbox" name="Lqt2" onclick="Laddqt(2)">
+     	<font size="2">实验方法</font> 
+     	<input type="checkbox" name="Lqt3" onclick="Laddqt(3)">
+      	<font size="2">实验名称</font><br>
+      	<input type="checkbox" name="Lqt4" onclick="Laddqt(4)">
+      	<font size="2">对象来源-产地</font> 
+      	<input type="checkbox" name="Lqt5" onclick="Laddqt(5)">
+      	<font size="2">对象来源-部位</font> 
+      	<input type="checkbox" name="Lqt6" onclick="Laddqt(6)">
+      	<font size="2">对象来源-科属</font><br>
+      	
+      	<font size="2"><b>实验结果：</b></font><br>
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分纯化：</font><br>
+      	<input type="checkbox" name="syjg1" onclick="Laddjg(1)">
+      	<font size="2">熔点</font> 
+      	<input type="checkbox" name="syjg2" onclick="Laddjg(2)">
+      	<font size="2">活性</font> 
+      	<input type="checkbox" name="syjg3" onclick="Laddjg(3)">
+      	<font size="2">纯化倍数</font><br>
+      	<input type="checkbox" name="syjg4" onclick="Laddjg(4)">
+      	<font size="2">旋光度</font> 
+      	<input type="checkbox" name="syjg5" onclick="Laddjg(5)">
+      	<font size="2">回收率</font> 
+      	<input type="checkbox" name="syjg6" onclick="Laddjg(6)">
+      	<font size="2">纯度</font><br>
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分分离：</font><br>
+      	<input type="checkbox" name="syjg7" onclick="Laddjg(7)">
+      	<font size="2">沉降平衡</font> 
+      	<input type="checkbox" name="syjg8" onclick="Laddjg(8)">
+      	<font size="2">沉降系数</font> 
+      	<input type="checkbox" name="syjg9" onclick="Laddjg(9)">
+      	<font size="2">沉降速度</font><br>
+      	<input type="checkbox" name="syjg10" onclick="Laddjg(10)">
+      	<font size="2">沉降时间</font> 
+      	<input type="checkbox" name="syjg11" onclick="Laddjg(11)">
+      	<font size="2">K系数</font><br> 
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分提取：</font><br>
+      	<input type="checkbox" name="syjg12" onclick="Laddjg(12)">
+      	<font size="2">重量</font>
+      	<input type="checkbox" name="syjg13" onclick="Laddjg(13)">
+      	<font size="2">收率</font><br> 
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp含量测定：</font><br>
+      	<input type="checkbox" name="syjg14" onclick="Laddjg(14)">
+      	<font size="2">检测品含量</font> 
+      	<input type="checkbox" name="syjg15" onclick="Laddjg(15)">
+      	<font size="2">精密度测定</font><br>
+      	<input type="checkbox" name="syjg16" onclick="Laddjg(16)">
+      	<font size="2">线性关系</font> 
+      	<input type="checkbox" name="syjg17" onclick="Laddjg(17)">
+      	<font size="2">稳定性试验</font> 
+      	<input type="checkbox" name="syjg18" onclick="Laddjg(18)">
+      	<font size="2">重现性试验</font><br>
+      	<input type="checkbox" name="syjg19" onclick="Laddjg(19)">
+      	<font size="2">相对标准偏差</font> 
+      	<input type="checkbox" name="syjg20" onclick="Laddjg(20)">
+      	<font size="2">回收率</font> 
+      	<input type="checkbox" name="syjg21" onclick="Laddjg(21)">
+      	<font size="2">标准曲线</font> 
+      	
+      	<p>
+      	<div align="center"> 
+        <input type="button"   value="精确查询" onclick="postform(1,0)" >
+        <input type="button"   value="模糊查询" onclick="postform(1,1)" >
+        </div>
+    	</p>
+   	</div>
+   	<!-- 实验方法-->
+	<div align="center" id="div2"  style="VISIBILITY: hidden; POSITION: absolute">
+   		<font size="3"><b>选择查询范围</b></font><p></p>
+   		<input type="checkbox" name="syqt1"  onclick="Maddqt(1)">
+        <font size="2">实验对象</font> 
+        <input type="checkbox" name="syqt2"  onclick="Maddqt(2)">
+        <font size="2">实验名称</font><p>
+        <font size="2"><b>实验结果：</b></font><br>
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分纯化：</font><br>
+      	<input type="checkbox" name="syjg1" onclick="Maddjg(1)">
+      	<font size="2">熔点</font> 
+      	<input type="checkbox" name="syjg2" onclick="Maddjg(2)">
+      	<font size="2">活性</font> 
+      	<input type="checkbox" name="syjg3" onclick="Maddjg(3)">
+      	<font size="2">纯化倍数</font><br>
+      	<input type="checkbox" name="syjg4" onclick="Maddjg(4)">
+      	<font size="2">旋光度</font> 
+      	<input type="checkbox" name="syjg5" onclick="Maddjg(5)">
+      	<font size="2">回收率</font> 
+      	<input type="checkbox" name="syjg6" onclick="Maddjg(6)">
+      	<font size="2">纯度</font><br>
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分分离：</font><br>
+      	<input type="checkbox" name="syjg7" onclick="Maddjg(7)">
+      	<font size="2">沉降平衡</font> 
+      	<input type="checkbox" name="syjg8" onclick="Maddjg(8)">
+      	<font size="2">沉降系数</font> 
+      	<input type="checkbox" name="syjg9" onclick="Maddjg(9)">
+      	<font size="2">沉降速度</font><br>
+      	<input type="checkbox" name="syjg10" onclick="Maddjg(10)">
+      	<font size="2">沉降时间</font> 
+      	<input type="checkbox" name="syjg11" onclick="Maddjg(11)">
+      	<font size="2">K系数</font><br> 
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp成分提取：</font><br>
+      	<input type="checkbox" name="syjg12" onclick="Maddjg(12)">
+      	<font size="2">重量</font>
+      	<input type="checkbox" name="syjg13" onclick="Maddjg(13)">
+      	<font size="2">收率</font><br> 
+      	
+      	<font size="2">&nbsp&nbsp&nbsp&nbsp含量测定：</font><br>
+      	<input type="checkbox" name="syjg14" onclick="Maddjg(14)">
+      	<font size="2">检测品含量</font> 
+      	<input type="checkbox" name="syjg15" onclick="Maddjg(15)">
+      	<font size="2">精密度测定</font><br>
+      	<input type="checkbox" name="syjg16" onclick="Maddjg(16)">
+      	<font size="2">线性关系</font> 
+      	<input type="checkbox" name="syjg17" onclick="Maddjg(17)">
+      	<font size="2">稳定性试验</font> 
+      	<input type="checkbox" name="syjg18" onclick="Maddjg(18)">
+      	<font size="2">重现性试验</font><br>
+      	<input type="checkbox" name="syjg19" onclick="Maddjg(19)">
+      	<font size="2">相对标准偏差</font> 
+      	<input type="checkbox" name="syjg20" onclick="Maddjg(20)">
+      	<font size="2">回收率</font> 
+      	<input type="checkbox" name="syjg21" onclick="Maddjg(21)">
+      	<font size="2">标准曲线</font> 
+      	<p>
+      	<div align="center"> 
+        <input type="button"   value="精确查询" onclick="postform(2,0)" >
+        <input type="button"   value="模糊查询" onclick="postform(2,1)" >
+        </div>
+    	</p>
+   	</div>
+
+<CENTER><H2><FONT face="楷体_GB2312" color="brown">化学实验统计</FONT></H2>
+<form name="selectform">
+    <table border=1 cellPadding=10 cellSpacing=0 width="100%" class="itable">
+    	<tr>
+    		<td width="20%" class="itd">
+		
+        	<div align="center"> 
+          	<font size="2">简介</font>
+          
+         	<div align="left"> 
+          	<font size="2"> &nbsp;&nbsp;&nbsp;化学实验库收录实验数据。将收录内容进行编辑和结构化分析之后，对中医药文献资料中出现的术语以及术语组合进行次数统计，为科研工作者提供检索查询服务。 </font></p>
+          	<font size="2"></font></div></div>
+      		</td>      
+    		<td width="34%" class="itd">
+    			<div align="center">
+    			<table>
+    			<tr>	
+    			<td><font size="2">统计类别</font></td><td>
+    			<select name="select" onchange="showcondition()">
+    				<option value='div0'>实验对象</option>
+    				<option value='div1'>实验室</option>
+    				<option value='div2'>实验方法</option>
+    			</select>
+    	
+    			</td>
+    			</tr>
+    			<tr>
+    			<td><font size="2">关键字</td><td>
+    			<input type=text name=keyword size=13></td><td>
+    			<input type="button" value="辅助选词" onclick="showStandard(document.selectform.select[document.selectform.select.selectedIndex].value,'right','keyword')"></td>
+    			</tr></table></font>
+    			</div>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td width="16%" class="itd">
+         	<div align="center"> 
+          	<p><font size="2">使用说明</font></p>
+         	<div>
+         	<div align="left"> 
+          	<font size="2">&nbsp;&nbsp;&nbsp;
+      		选择查询项，填写查询内容之后点击查询，查询内容为查询项的相关术语，可填可不填，若不填，则查询的范围为查询项的所有值</font></p>
+          	<font size="2"></font></div></div></div>
+      		</td>
+    		<td width="34%" align=middle class="itd">
+        		<table width="70%">
+        		<tr>	
+    			<td id=scontent>
+    			<!--根据选择显示不同的查询范围-->
+    			</td>
+    			</tr>
+    			</table>
+      			<br>
+      		</td>
+    	</tr>
+    </table>
+    <input type=hidden name=pastefield>
+</form>
+
+<form action=otjresult.asp method=post name=oform>
+	<input type=hidden name=okeyword>
+	<input type=hidden name=querytype>
+	<select name=tabselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+	<select name=labselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+	<select name=syqtselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+	<select name=syjgselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+</form>
+<form action=ltjresult.asp method=post name=lform>
+	<input type=hidden name=lkeyword>
+	<input type=hidden name=querytype>
+	<select name=syqtselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+	<select name=syjgselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+</form>
+<form action=mtjresult.asp method=post name=mform>
+	<input type=hidden name=mkeyword>
+	<input type=hidden name=querytype>
+	<select name=syqtselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+	<select name=syjgselect multiple style="VISIBILITY: hidden; HEIGHT: 0px"></select>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<OBJECT RUNAT=Server SCOPE=Application ID=OraSession PROGID="OracleInProcServer.XOraSession"></OBJECT>
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+
+'You can add special event handlers in this file that will get run automatically when
+'special Active Server Pages events occur. To create these handlers, just create a
+'subroutine with a name from the list below that corresponds to the event you want to
+'use. For example, to create an event handler for Session_OnStart, you would put the
+'following code into this file (without the comments):
+
+'Session_OnStart
+
+'Session_OnEnd
+
+Sub Application_OnStart
+	OraSession.CreateDatabasePool 10, 1000, 60, "sun3500", "tcm_basic/basic", 0
+End sub
+
+'Application_OnEnd      Runs once when the web server shuts down
+
+</SCRIPT>
